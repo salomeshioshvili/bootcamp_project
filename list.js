@@ -1,8 +1,14 @@
 window.onload = function() {
     let items = localStorage.getItem('items');
     let itemsList = document.getElementById('itemsList');
-    
-    // table with headers
+
+    // Check if items were uploaded
+    if (!items) {
+        itemsList.innerHTML = '<p>No items uploaded.</p>';
+        return;
+    }
+
+    // Create table with headers
     let table = document.createElement('table');
     let headerRow = table.insertRow();
     ['Item Name', 'Quantity', 'Price', 'Total'].forEach(headerText => {
@@ -10,21 +16,21 @@ window.onload = function() {
         header.textContent = headerText;
         headerRow.appendChild(header);
     });
-    
+
     let grandTotal = 0;
-    
-    // Adding items to table
+
+    // Adding items to the table
     items.split('\n').forEach(line => {
-        if(line.trim()) {
+        if (line.trim()) {
             let [item, quantity, price] = line.split(',').map(item => item.trim());
-            
+
             // Remove $ from price if present
             price = price ? price.replace('$', '') : '0';
-            
-            // Calculate total for row
+
+            // Calculate total for the row
             let total = parseFloat(price) * parseInt(quantity);
             grandTotal += total;
-            
+
             let row = table.insertRow();
             row.insertCell().textContent = item || '';
             row.insertCell().textContent = quantity || '';
@@ -32,9 +38,9 @@ window.onload = function() {
             row.insertCell().textContent = '$' + total.toFixed(2);
         }
     });
-    
+
     itemsList.appendChild(table);
-    
+
     // Add grand total
     let totalDiv = document.createElement('div');
     totalDiv.className = 'total';
