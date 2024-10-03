@@ -1,0 +1,53 @@
+body {
+    font-family: Arial;
+    margin: 20px;
+}
+
+.box {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.example {
+    background: #f5f5f5;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: monospace;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+th {
+    background-color: #f0f0f0;
+}
+
+.total {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
